@@ -54,7 +54,33 @@ var flashcards3 = ["Based on what you learned about me what would you recommend 
 "What question were you most afraid to answer?", "Why do you think we met?", "When this game is over, what will be something you will remember about me?", "What do you think my weakness is?", "How do our personalities compliment each other?", "What do you think I should know about myself that perhaps I'm unaware of?",
 "What would make you feel closer to me?", "What do you admire most about me?", "In one word, describe how you feel right now.", "Do you believe everyone has a calling? If so, do you think I've found mine?", "What can we create together?", "What answer of mine made you light up?", "What's the most attractive quality about me that isn't physical?"]
 
+for (i = 0; i<100; i++) {
+    a = Math.floor(Math.random*flashcards3.length);
+    b = Math.floor(Math.random*flashcards3.length);
+
+    // doesn't let these variables be the same
+    while (b === a) {
+        b = Math.floor(Math.random*flashcards3.length);
+    }
+    bucket = flashcards3[b];
+    flashcards3[b] = flashcards3[a]; 
+    flashcards3[a] = bucket;
+}
+
+
 // implement these to only show up after a certain point. Should display "WILDCARD" in big text above the card
 var wildcards = ["CREATE YOUR OWN QUESTION TO ASK ME. ANYTHING. MAKE IT COUNT.", "PRESS SHUFFLE ON YOUR MUSIC LIBRARY. EXPLAIN THE FIRST SONG THAT COMES UP!", "SHARE SOMETHING YOU'RE MOST GRATEFUL FOR IN THIS CURRENT MOMENT.", "DESCRIBE THE FIRST PHOTO IN YOUR CAMERA ROLL.", "WHAT DO YOU DISLIKE THAT MOST PEOPLE DON'T?",
 "WHAT IS YOUR MOST FAVOURITE MEMORY?", "SHARE YOUR MOST FAVOURITE SONG LYRICS" , "BREAK DOWN YOUR SCREENTIME FOR ME."]
 
+for (i = 0; i<100; i++) {
+    a = Math.floor(Math.random*wildcards.length);
+    b = Math.floor(Math.random*wildcards.length);
+
+    // doesn't let these variables be the same
+    while (b === a) {
+        b = Math.floor(Math.random*wildcards.length);
+    }
+    bucket = wildcards[b];
+    wildcards[b] = wildcards[a]; 
+    wildcards[a] = bucket;
+}
