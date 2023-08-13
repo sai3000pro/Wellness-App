@@ -84,3 +84,19 @@ for (i = 0; i<100; i++) {
     wildcards[b] = wildcards[a]; 
     wildcards[a] = bucket;
 }
+
+
+function levelup() {
+    alert(flashcards1[o]);
+}
+
+document.querySelector("#levelup").addEventListener("click", levelup);
+
+
+document.querySelector("#refresh").addEventListener("click", handleClick);
+
+
+alert(flashcards1[o]);
+document.querySelector(".first").textContent=flashcards1[0];
+document.querySelector(".second").textContent=flashcards1[1];
+document.querySelector(".last").textContent=flashcards1[2];
