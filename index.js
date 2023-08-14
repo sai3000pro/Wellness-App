@@ -14,7 +14,7 @@ var flashcards1 = ["Do you think I've ever been in love?", "What about me is mos
 var a;
 var b;
 var bucket;
-for (var i = 0; i<100; i++) {
+for (var x = 0; x<100; x++) {
     a = Math.floor(Math.random*flashcards1.length);
     b = Math.floor(Math.random*flashcards1.length);
 
@@ -33,7 +33,7 @@ var flashcards2 = ["What's the last thing you lied about?", "What is your most d
 "What are you still trying to prove to yourself?", "When is the last time you cried?", "If you could instill one personality trait in your child, what would it be?", "What's the hardest part about dating you?", "What's your favorite song lyric that you can think of off the top of your head?",
 "Think of someone that you admire. What made you think about them specifically?", "What's the biggest mistake you've made?", "What's a phrase that you say that you wish you would stop saying?"]
 
-for (i = 0; i<100; i++) {
+for (var y = 0; y<100; y++) {
     a = Math.floor(Math.random*flashcards2.length);
     b = Math.floor(Math.random*flashcards2.length);
 
@@ -54,7 +54,7 @@ var flashcards3 = ["Based on what you learned about me what would you recommend 
 "What question were you most afraid to answer?", "Why do you think we met?", "When this game is over, what will be something you will remember about me?", "What do you think my weakness is?", "How do our personalities compliment each other?", "What do you think I should know about myself that perhaps I'm unaware of?",
 "What would make you feel closer to me?", "What do you admire most about me?", "In one word, describe how you feel right now.", "Do you believe everyone has a calling? If so, do you think I've found mine?", "What can we create together?", "What answer of mine made you light up?", "What's the most attractive quality about me that isn't physical?"]
 
-for (i = 0; i<100; i++) {
+for (var z = 0; z<100; z++) {
     a = Math.floor(Math.random*flashcards3.length);
     b = Math.floor(Math.random*flashcards3.length);
 
@@ -72,7 +72,7 @@ for (i = 0; i<100; i++) {
 var wildcards = ["CREATE YOUR OWN QUESTION TO ASK ME. ANYTHING. MAKE IT COUNT.", "PRESS SHUFFLE ON YOUR MUSIC LIBRARY. EXPLAIN THE FIRST SONG THAT COMES UP!", "SHARE SOMETHING YOU'RE MOST GRATEFUL FOR IN THIS CURRENT MOMENT.", "DESCRIBE THE FIRST PHOTO IN YOUR CAMERA ROLL.", "WHAT DO YOU DISLIKE THAT MOST PEOPLE DON'T?",
 "WHAT IS YOUR MOST FAVOURITE MEMORY?", "SHARE YOUR MOST FAVOURITE SONG LYRICS" , "BREAK DOWN YOUR SCREENTIME FOR ME."]
 
-for (i = 0; i<100; i++) {
+for (var zz = 0; zz<100; zz++) {
     a = Math.floor(Math.random*wildcards.length);
     b = Math.floor(Math.random*wildcards.length);
 
@@ -87,7 +87,9 @@ for (i = 0; i<100; i++) {
 
 
 var level = 1;
+var i = 0;
 var j = 0;
+var k = 0;
 
 document.querySelector("#first").textContent=flashcards1[0];
 document.querySelector("#second").textContent=flashcards1[1];
@@ -96,22 +98,22 @@ document.querySelector("#third").textContent=flashcards1[2];
 function levelup() {
     if (level < 3) {
         level++;
+        i = 0;
         j = 0;
+        k = 0;
         alert("Moving up a level!");
         if (level == 2) {
-            j++;
-            j*=3
-            document.querySelector("#first").textContent=flashcards2[j-2];
-            document.querySelector("#second").textContent=flashcards2[j-1];
-            document.querySelector("#third").textContent=flashcards2[j];
+            j*=3;
+            document.querySelector("#first").textContent=flashcards2[j];
+            document.querySelector("#second").textContent=flashcards2[j+1];
+            document.querySelector("#third").textContent=flashcards2[j+2];
         }
     
         if (level == 3) {
-            j++;
-            j*=3
-            document.querySelector("#first").textContent=flashcards3[j-2];
-            document.querySelector("#second").textContent=flashcards3[j-1];
-            document.querySelector("#third").textContent=flashcards3[j];
+            k*=3;
+            document.querySelector("#first").textContent=flashcards3[k];
+            document.querySelector("#second").textContent=flashcards3[k+1];
+            document.querySelector("#third").textContent=flashcards3[k+2];
         }
     }
 
@@ -121,23 +123,20 @@ function levelup() {
 }
 
 function refresh() {
-    j++;
-    j*=3;
-
-    if (level == 1 && j>= (flashcards1.length + 1)) {
-        j = 0;
+    if (level == 1 && i>= (flashcards1.length + 1)) {
+        i = 0;
         level++;
         alert("Moving to Level 2: Connection.");
     }
 
-    if (level == 2 && j>= (flashcards2.length - 1)) {
+    if (level == 2 && j>= (flashcards2.length + 1)) {
         j = 0;
         level++;
         alert("Moving to Level 3: Reflection.");
     }
 
-    if (level == 3 && j >= (flashcards3.length - 1)) {
-        j = 0;
+    if (level == 3 && k >= (flashcards3.length + 1)) {
+        k = 0;
         level = 1;
         alert("No more new flashcards. Back to level 1!");
     }
@@ -149,19 +148,19 @@ function refresh() {
     }
 
     if (level == 2) {
+        j*=3;
+        document.querySelector("#first").textContent=flashcards2[j];
+        document.querySelector("#second").textContent=flashcards2[j+1];
+        document.querySelector("#third").textContent=flashcards2[j+2];
         j++;
-        j*=3
-        document.querySelector("#first").textContent=flashcards2[j-2];
-        document.querySelector("#second").textContent=flashcards2[j-1];
-        document.querySelector("#third").textContent=flashcards2[j];
     }
 
     if (level == 3) {
-        j++;
-        j*=3
-        document.querySelector("#first").textContent=flashcards3[j-2];
-        document.querySelector("#second").textContent=flashcards3[j-1];
-        document.querySelector("#third").textContent=flashcards3[j];
+        k*=3;
+        document.querySelector("#first").textContent=flashcards3[k];
+        document.querySelector("#second").textContent=flashcards3[k+1];
+        document.querySelector("#third").textContent=flashcards3[k+2];
+        k++;
     }
 
    
