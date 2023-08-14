@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import random
 
-TOKEN = 'MTE0MDM5MTM0MjA4NjgxNTc1NQ.G8WwKz.Q4Gkrr7QveDDmOvlDxRhiFkacSNmuJiFm3PKCM'
+TOKEN = 'MTE0MDM5MTM0MjA4NjgxNTc1NQ.G6ujq6.Dz3mlEt0GBhaTXLKfSUBNmXLAqHRA9Adrnwi0g'
 prompts1 = ["Do you think I've ever been in love?", "What about me is most strange or unfamiliar?", "Do you think I've ever had my heart broken?", "What do you think I'd splurge on?", 
 "What do you think my major is?", "What do you think I'm going to do in the future (work/employment)?", "What was your first impression of me?", "Do you think I was popular in high school?", "On a scale of 1 - 10, how messy do you think my car is?", "Do you think I like hot cheetos?",
 "Do you think I like to read?", "Do you think I'm in Greek Life?", "Do you think I have a sibling? Older or younger?", "Who do you think is my favorite artist?", "Where do you think I grew up?",
@@ -55,10 +55,10 @@ async def on_ready():
 
 @client.command()
 async def prompt(ctx):
-    await ctx.send(f'**Option 1:** {prompts1[random.randint(0, len(prompts1))]} \nOption 2: {prompts2[random.randint(0, len(prompts2))]} \nOption 3: {prompts3[random.randint(0, len(prompts3))]}')
+    await ctx.send(f'**Level 1:** {prompts1[random.randint(0, len(prompts1))]} \n**Level 2:** {prompts2[random.randint(0, len(prompts2))]} \n**Level 3**: {prompts3[random.randint(0, len(prompts3))]}')
 
 @client.command()
 async def wildcard(ctx):
-    await ctx.send(f'WILDCARD: {wildcards[random.randint(0, len(wildcards))]}')
+    await ctx.send(f'**WILDCARD:** {wildcards[random.randint(0, len(wildcards))]}')
 
 client.run(TOKEN)
