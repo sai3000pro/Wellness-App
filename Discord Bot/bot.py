@@ -35,6 +35,6 @@ def run_discord_bot():
         else: 
             # can add something in front, like an exclamation mark, so that normal messages don't go through bot
             await send_message(message, user_message, is_private = False)
-            
+
     client.run(TOKEN)
 
