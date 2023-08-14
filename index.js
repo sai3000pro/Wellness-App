@@ -134,7 +134,6 @@ function refresh() {
     }
 
     if (level == 2) {
-        j+=3;
         document.querySelector("#first").textContent=flashcards2[j];
         document.querySelector("#second").textContent=flashcards2[j+1];
         document.querySelector("#third").textContent=flashcards2[j+2];
@@ -143,10 +142,10 @@ function refresh() {
             j = 0;
             alert("Moving to Level 3: Reflection.");
         }
+        j+=3;
     }
 
     if (level == 3) {
-        k+=3;
         document.querySelector("#first").textContent=flashcards3[k];
         document.querySelector("#second").textContent=flashcards3[k+1];
         document.querySelector("#third").textContent=flashcards3[k+2];
@@ -158,6 +157,7 @@ function refresh() {
             document.querySelector("#second").textContent=flashcards1[i+1];
             document.querySelector("#third").textContent=flashcards1[i+2];
         }
+        k+=3;
     }
 
    
