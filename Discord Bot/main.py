@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import random
 
-TOKEN = 'MTE0MDM5MTM0MjA4NjgxNTc1NQ.G6ujq6.Dz3mlEt0GBhaTXLKfSUBNmXLAqHRA9Adrnwi0g'
+TOKEN = 'MTE0MDM5MTM0MjA4NjgxNTc1NQ.GXdBUc.AsbKXqa0unrYrl6eYXHs_cjkWb3ilb2as9w7RA'
 prompts1 = ["Do you think I've ever been in love?", "What about me is most strange or unfamiliar?", "Do you think I've ever had my heart broken?", "What do you think I'd splurge on?", 
 "What do you think my major is?", "What do you think I'm going to do in the future (work/employment)?", "What was your first impression of me?", "Do you think I was popular in high school?", "On a scale of 1 - 10, how messy do you think my car is?", "Do you think I like hot cheetos?",
 "Do you think I like to read?", "Do you think I'm in Greek Life?", "Do you think I have a sibling? Older or younger?", "Who do you think is my favorite artist?", "Where do you think I grew up?",
@@ -50,7 +50,7 @@ client = commands.Bot(intents=intents,command_prefix = '!')
 @client.event
 async def on_ready():
     print("The bot is ready for use")
-    channel = client.get_channel(1140434158288633900)  # Replace with your Welcome channel ID
+    channel = client.get_channel(1140502068247928886)  # Replace with your Welcome channel ID
     await channel.send(f'**Welcome to the Healthut bot!**\n\nInteracting with others can be hard. Sometimes we\'re scared of rejection or judgment, and other times we just don\'t know what to say! Healthut is a bot that provides prompts for one-on-one conversations or with a group! Treat it as a game: one person generates a set of questions, and the other person (or people) get to choose one of the three displayed options to answer.\n\n**Commands:**\n\n***!prompt*** - generates a random set of three questions or options for the other person/people to answer. These three questions are categorized as *level 1, 2, and 3*, where level 1 focuses on first impressions and how you read others, level 2 focuses on emotions and digging deeper, and level 3 focuses on reflection of the players and the moment.\n\n***!wildcard*** - generates a random wildcard (which has a bit of a wilder prompt ;) ← use this after at least a few rounds of regular prompts!\n\nHope you all enjoy, and have fun learning more about each other!')
 
 @client.command()
