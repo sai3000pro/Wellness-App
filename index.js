@@ -1,9 +1,9 @@
 // this removes overlays when they are clicked on... possible loading screen of "click here to begin"
-document.querySelector(".overlay").addEventListener("click", handleClick);
+// document.querySelector(".overlay").addEventListener("click", handleClick);
 
-function handleClick() {
-    document.querySelector(".overlay").style.display = "none";
-} 
+// function handleClick() {
+//     document.querySelector(".overlay").style.display = "none";
+// } 
 
 var flashcards1 = ["Do you think I've ever been in love?", "What about me is most strange or unfamiliar?", "Do you think I've ever had my heart broken?", "What do you think I'd splurge on?", 
 "What do you think my major is?", "What do you think I'm going to do in the future (work/employment)?", "What was your first impression of me?", "Do you think I was popular in high school?", "On a scale of 1 - 10, how messy do you think my car is?", "Do you think I like hot cheetos?",
@@ -86,17 +86,90 @@ for (i = 0; i<100; i++) {
 }
 
 
+var level = 1;
+var j = 0;
+
+document.querySelector("#first").textContent=flashcards1[0];
+document.querySelector("#second").textContent=flashcards1[1];
+document.querySelector("#third").textContent=flashcards1[2];
+
 function levelup() {
-    alert(flashcards1[o]);
+    if (level < 3) {
+        level++;
+        j = 0;
+        alert("Moving up a level!");
+        if (level == 2) {
+            j++;
+            j*=3
+            document.querySelector("#first").textContent=flashcards2[j-2];
+            document.querySelector("#second").textContent=flashcards2[j-1];
+            document.querySelector("#third").textContent=flashcards2[j];
+        }
+    
+        if (level == 3) {
+            j++;
+            j*=3
+            document.querySelector("#first").textContent=flashcards3[j-2];
+            document.querySelector("#second").textContent=flashcards3[j-1];
+            document.querySelector("#third").textContent=flashcards3[j];
+        }
+    }
+
+    else {
+        alert("Stay tuned for more levels!");
+    }
+}
+
+function refresh() {
+    j++;
+    j*=3;
+
+    if (level == 1 && j>= (flashcards1.length + 1)) {
+        j = 0;
+        level++;
+        alert("Moving to Level 2: Connection.");
+    }
+
+    if (level == 2 && j>= (flashcards2.length - 1)) {
+        j = 0;
+        level++;
+        alert("Moving to Level 3: Reflection.");
+    }
+
+    if (level == 3 && j >= (flashcards3.length - 1)) {
+        j = 0;
+        level = 1;
+        alert("No more new flashcards. Back to level 1!");
+    }
+
+    if (level == 1) {
+        document.querySelector("#first").textContent=flashcards1[j];
+        document.querySelector("#second").textContent=flashcards1[j+1];
+        document.querySelector("#third").textContent=flashcards1[j+2];
+    }
+
+    if (level == 2) {
+        j++;
+        j*=3
+        document.querySelector("#first").textContent=flashcards2[j-2];
+        document.querySelector("#second").textContent=flashcards2[j-1];
+        document.querySelector("#third").textContent=flashcards2[j];
+    }
+
+    if (level == 3) {
+        j++;
+        j*=3
+        document.querySelector("#first").textContent=flashcards3[j-2];
+        document.querySelector("#second").textContent=flashcards3[j-1];
+        document.querySelector("#third").textContent=flashcards3[j];
+    }
+
+   
 }
 
 document.querySelector("#levelup").addEventListener("click", levelup);
+document.querySelector("#refresh").addEventListener("click", refresh);
 
 
-document.querySelector("#refresh").addEventListener("click", handleClick);
 
 
-alert(flashcards1[o]);
-document.querySelector(".first").textContent=flashcards1[0];
-document.querySelector(".second").textContent=flashcards1[1];
-document.querySelector(".last").textContent=flashcards1[2];
