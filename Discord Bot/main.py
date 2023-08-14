@@ -29,6 +29,7 @@ client = commands.Bot(intents=intents,command_prefix = '!')
 @client.event
 async def on_ready():
     print("The bot is ready for use")
+    await channel.send("")
 
 @client.command()
 async def prompt(ctx):
