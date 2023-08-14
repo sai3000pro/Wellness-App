@@ -8,7 +8,7 @@
 var flashcards1 = ["Do you think I've ever been in love?", "What about me is most strange or unfamiliar?", "Do you think I've ever had my heart broken?", "What do you think I'd splurge on?", 
 "What do you think my major is?", "What do you think I'm going to do in the future (work/employment)?", "What was your first impression of me?", "Do you think I was popular in high school?", "On a scale of 1 - 10, how messy do you think my car is?", "Do you think I like hot cheetos?",
 "Do you think I like to read?", "Do you think I'm in Greek Life?", "Do you think I have a sibling? Older or younger?", "Who do you think is my favorite artist?", "Where do you think I grew up?",
-"What do you think my favorite Starbucks drink is?", "Do you think I like Taco Bell?"]
+"What do you think my favorite Starbucks drink is?", "Do you think I like Taco Bell?", "What sports are you into? Why?"]
 
 // randomly sorts this array so that the order isn't quite the same every time
 var a;
@@ -31,7 +31,7 @@ var flashcards2 = ["What's the last thing you lied about?", "What is your most d
 "Which one of your parent's personality traits do you want to keep/ let go of?", "What would you tell your younger self and what have you learned from this lesson?", "What is the last thing you lied to your mom about?", "What's the worst pain you've ever been in that wasn't physical?",
 "What's your father's name and one thing about him?", "What's the most unexplainable thing that has ever happened to you?", "What would your younger self not believe about your life today?", "What non-domestic animal describes you and why?", "What is your favorite adjective with which to be described?",
 "What are you still trying to prove to yourself?", "When is the last time you cried?", "If you could instill one personality trait in your child, what would it be?", "What's the hardest part about dating you?", "What's your favorite song lyric that you can think of off the top of your head?",
-"Think of someone that you admire. What made you think about them specifically?", "What's the biggest mistake you've made?", "What's a phrase that you say that you wish you would stop saying?"]
+"Think of someone that you admire. What made you think about them specifically?", "What's the biggest mistake you've made?", "What's a phrase that you say that you wish you would stop saying?", "What are you most excited for today? Big or small."]
 
 for (var y = 0; y<100; y++) {
     a = Math.floor(Math.random()*flashcards2.length);
@@ -126,10 +126,10 @@ function refresh() {
         document.querySelector("#first").textContent=flashcards1[i];
         document.querySelector("#second").textContent=flashcards1[i+1];
         document.querySelector("#third").textContent=flashcards1[i+2];
-        if (i>= (flashcards1.length + 1)) {
+        if (i>= (flashcards1.length - 1)) {
             level++;
-            alert("Moving to Level 2: Connection.");
             i = 0;
+            alert("Moving to Level 2: Connection.");
         }
     }
 
@@ -138,10 +138,10 @@ function refresh() {
         document.querySelector("#first").textContent=flashcards2[j];
         document.querySelector("#second").textContent=flashcards2[j+1];
         document.querySelector("#third").textContent=flashcards2[j+2];
-        if (j>= (flashcards2.length + 1)) {
+        if (j>= (flashcards2.length - 1)) {
             level++;
-            alert("Moving to Level 3: Reflection.");
             j = 0;
+            alert("Moving to Level 3: Reflection.");
         }
     }
 
@@ -150,9 +150,9 @@ function refresh() {
         document.querySelector("#first").textContent=flashcards3[k];
         document.querySelector("#second").textContent=flashcards3[k+1];
         document.querySelector("#third").textContent=flashcards3[k+2];
-        if (k >= (flashcards3.length + 1)) {
-            level = 1;
+        if (k >= (flashcards3.length - 1)) {
             alert("No more new flashcards. Back to level 1!");
+            level = 1;
             k = 0;
             document.querySelector("#first").textContent=flashcards1[i];
             document.querySelector("#second").textContent=flashcards1[i+1];
