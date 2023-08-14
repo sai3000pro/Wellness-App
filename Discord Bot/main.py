@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import random
 
-TOKEN = 'MTE0MDM5MTM0MjA4NjgxNTc1NQ.Gnxg7Z._ZZ_PtCCE0eMCH9o78cxAW9Ckez1AFawrnT5Ls'
+TOKEN = 'MTE0MDM5MTM0MjA4NjgxNTc1NQ.G8WwKz.Q4Gkrr7QveDDmOvlDxRhiFkacSNmuJiFm3PKCM'
 prompts1 = ["Do you think I've ever been in love?", "What about me is most strange or unfamiliar?", "Do you think I've ever had my heart broken?", "What do you think I'd splurge on?", 
 "What do you think my major is?", "What do you think I'm going to do in the future (work/employment)?", "What was your first impression of me?", "Do you think I was popular in high school?", "On a scale of 1 - 10, how messy do you think my car is?", "Do you think I like hot cheetos?",
 "Do you think I like to read?", "Do you think I'm in Greek Life?", "Do you think I have a sibling? Older or younger?", "Who do you think is my favorite artist?", "Where do you think I grew up?",
@@ -29,14 +29,11 @@ client = commands.Bot(intents=intents,command_prefix = '!')
 @client.event
 async def on_ready():
     print("The bot is ready for use")
-    await channel.send("")
+    channel = client.get_channel(1140434158288633900)  # Replace with your Welcome channel ID
+    await channel.send(f"Hello everyone!")
 
 @client.command()
 async def prompt(ctx):
     await ctx.send(f'Option 1: {prompts1[random.randint(0, len(prompts1))]} \nOption 2: {prompts2[random.randint(0, len(prompts2))]} \nOption 3: {prompts3[random.randint(0, len(prompts3))]}')
-
-@client.command()
-async def roll(ctx):
-    await ctx.send(str(random.randint(1, 6)))
 
 client.run(TOKEN)
