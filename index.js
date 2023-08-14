@@ -15,12 +15,12 @@ var a;
 var b;
 var bucket;
 for (var x = 0; x<100; x++) {
-    a = Math.floor(Math.random*flashcards1.length);
-    b = Math.floor(Math.random*flashcards1.length);
+    a = Math.floor(Math.random()*flashcards1.length);
+    b = Math.floor(Math.random()*flashcards1.length);
 
     // doesn't let these variables be the same
     while (b === a) {
-        b = Math.floor(Math.random*flashcards1.length);
+        b = Math.floor(Math.random()*flashcards1.length);
     }
     bucket = flashcards1[b];
     flashcards1[b] = flashcards1[a]; 
@@ -34,12 +34,12 @@ var flashcards2 = ["What's the last thing you lied about?", "What is your most d
 "Think of someone that you admire. What made you think about them specifically?", "What's the biggest mistake you've made?", "What's a phrase that you say that you wish you would stop saying?"]
 
 for (var y = 0; y<100; y++) {
-    a = Math.floor(Math.random*flashcards2.length);
-    b = Math.floor(Math.random*flashcards2.length);
+    a = Math.floor(Math.random()*flashcards2.length);
+    b = Math.floor(Math.random()*flashcards2.length);
 
     // doesn't let these variables be the same
     while (b === a) {
-        b = Math.floor(Math.random*flashcards2.length);
+        b = Math.floor(Math.random()*flashcards2.length);
     }
     bucket = flashcards2[b];
     flashcards2[b] = flashcards2[a]; 
@@ -55,12 +55,12 @@ var flashcards3 = ["Based on what you learned about me what would you recommend 
 "What would make you feel closer to me?", "What do you admire most about me?", "In one word, describe how you feel right now.", "Do you believe everyone has a calling? If so, do you think I've found mine?", "What can we create together?", "What answer of mine made you light up?", "What's the most attractive quality about me that isn't physical?"]
 
 for (var z = 0; z<100; z++) {
-    a = Math.floor(Math.random*flashcards3.length);
-    b = Math.floor(Math.random*flashcards3.length);
+    a = Math.floor(Math.random()*flashcards3.length);
+    b = Math.floor(Math.random()*flashcards3.length);
 
     // doesn't let these variables be the same
     while (b === a) {
-        b = Math.floor(Math.random*flashcards3.length);
+        b = Math.floor(Math.random()*flashcards3.length);
     }
     bucket = flashcards3[b];
     flashcards3[b] = flashcards3[a]; 
@@ -103,14 +103,12 @@ function levelup() {
         k = 0;
         alert("Moving up a level!");
         if (level == 2) {
-            j*=3;
             document.querySelector("#first").textContent=flashcards2[j];
             document.querySelector("#second").textContent=flashcards2[j+1];
             document.querySelector("#third").textContent=flashcards2[j+2];
         }
     
         if (level == 3) {
-            k*=3;
             document.querySelector("#first").textContent=flashcards3[k];
             document.querySelector("#second").textContent=flashcards3[k+1];
             document.querySelector("#third").textContent=flashcards3[k+2];
@@ -123,44 +121,43 @@ function levelup() {
 }
 
 function refresh() {
-    if (level == 1 && i>= (flashcards1.length + 1)) {
-        i = 0;
-        level++;
-        alert("Moving to Level 2: Connection.");
-    }
-
-    if (level == 2 && j>= (flashcards2.length + 1)) {
-        j = 0;
-        level++;
-        alert("Moving to Level 3: Reflection.");
-    }
-
-    if (level == 3 && k >= (flashcards3.length + 1)) {
-        k = 0;
-        level = 1;
-        alert("No more new flashcards. Back to level 1!");
-    }
-
     if (level == 1) {
-        document.querySelector("#first").textContent=flashcards1[j];
-        document.querySelector("#second").textContent=flashcards1[j+1];
-        document.querySelector("#third").textContent=flashcards1[j+2];
+        i+=3;
+        document.querySelector("#first").textContent=flashcards1[i];
+        document.querySelector("#second").textContent=flashcards1[i+1];
+        document.querySelector("#third").textContent=flashcards1[i+2];
+        if (i>= (flashcards1.length + 1)) {
+            level++;
+            alert("Moving to Level 2: Connection.");
+            i = 0;
+        }
     }
 
     if (level == 2) {
-        j*=3;
+        j+=3;
         document.querySelector("#first").textContent=flashcards2[j];
         document.querySelector("#second").textContent=flashcards2[j+1];
         document.querySelector("#third").textContent=flashcards2[j+2];
-        j++;
+        if (j>= (flashcards2.length + 1)) {
+            level++;
+            alert("Moving to Level 3: Reflection.");
+            j = 0;
+        }
     }
 
     if (level == 3) {
-        k*=3;
+        k+=3;
         document.querySelector("#first").textContent=flashcards3[k];
         document.querySelector("#second").textContent=flashcards3[k+1];
         document.querySelector("#third").textContent=flashcards3[k+2];
-        k++;
+        if (k >= (flashcards3.length + 1)) {
+            level = 1;
+            alert("No more new flashcards. Back to level 1!");
+            k = 0;
+            document.querySelector("#first").textContent=flashcards1[i];
+            document.querySelector("#second").textContent=flashcards1[i+1];
+            document.querySelector("#third").textContent=flashcards1[i+2];
+        }
     }
 
    
