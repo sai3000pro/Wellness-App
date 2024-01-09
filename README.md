@@ -1,5 +1,5 @@
 # Wellness-App
-RecessHacks 3.0 Submission
+RecessHacks 3.0 Submission - Winner of Popular Vote!
 
 # Inspiration
 Humans are naturally social beings, and good social interactions can boost our mood and mental health. It can be linked to better memory, cognitive function, self-esteem, and even physical health. However, there are multiple factors that can lead people to push away or avoid these interactions. We can be afraid of rejection, judgment, or being ignored. This can escalate into social anxiety, which can hinder us from creating close relationships. With feelings of isolation at a high in modern times, and a population recovering from the consequences of long-term social distancing, forming meaningful connections or finding ways to combat loneliness are imperative.
